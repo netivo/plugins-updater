@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "netivo-plugins-repo",
+  "account_id": "68c67a5e650ddf7497279ba624cb1cda",
   "main": "src/index.ts",
   "compatibility_date": "2024-11-01",
   "routes": [
@@ -12,7 +13,8 @@
   "r2_buckets": [
     {
       "binding": "BUCKET",
-      "bucket_name": "netivo-wp-updates"
+      "bucket_name": "netivo-wp-updates",
+      "jurisdiction": "eu"
     }
   ],
   "observability": {

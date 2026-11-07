@@ -11,6 +11,7 @@ const fs = require('fs');
 const path = require('path');
 
 const BUCKET = process.env.R2_BUCKET || 'netivo-wp-updates';
+const JURISDICTION = process.env.R2_JURISDICTION || 'eu';
 const ROOT_DIR = path.resolve(__dirname, '..');
 
 const filesToUpload = [
@@ -43,8 +44,9 @@ console.log(`==> Seeding files to Cloudflare R2 bucket: "${BUCKET}" using Wrangl
 
 // 1. Ensure the bucket exists (create it if missing)
 try {
-  console.log(`--> Checking/creating R2 bucket "${BUCKET}"...`);
-  execSync(`npx wrangler r2 bucket create "${BUCKET}"`, { stdio: 'pipe', cwd: ROOT_DIR });
+  console.log(`--> Checking/creating R2 bucket "${BUCKET}" (jurisdiction: ${JURISDICTION || 'default'})...`);
+  const createJurisdiction = JURISDICTION ? `--jurisdiction="${JURISDICTION}"` : '';
+  execSync(`npx wrangler r2 bucket create "${BUCKET}" ${createJurisdiction}`, { stdio: 'pipe', cwd: ROOT_DIR });
   console.log(`    [OK] Bucket "${BUCKET}" created successfully.\n`);
 } catch (err) {
   // If the bucket already exists or cannot be created, proceed to upload
@@ -63,7 +65,8 @@ for (const item of filesToUpload) {
   const destination = `${BUCKET}/${item.r2Key}`;
   console.log(`--> Uploading ${item.r2Key}...`);
 
-  const cmd = `npx wrangler r2 object put "${destination}" --file="${item.local}" --content-type="application/json" --cache-control="${item.cacheControl}" --remote`;
+  const jurisdictionFlag = JURISDICTION ? `--jurisdiction="${JURISDICTION}"` : '';
+  const cmd = `npx wrangler r2 object put "${destination}" --file="${item.local}" --content-type="application/json" --cache-control="${item.cacheControl}" ${jurisdictionFlag} --remote`;
 
   try {
     execSync(cmd, { stdio: 'inherit', cwd: ROOT_DIR });
