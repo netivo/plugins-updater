@@ -57,7 +57,7 @@ REQUIRES_WP="6.3"
 TESTED_WP="6.7"
 CHANGELOG=""
 DESCRIPTION=""
-REPO_BASE_URL="${REPO_BASE_URL:-https://updates.netivo.pl}"
+REPO_BASE_URL="${REPO_BASE_URL:-https://updates.netivo.dev}"
 AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION:-auto}"
 export AWS_DEFAULT_REGION
 

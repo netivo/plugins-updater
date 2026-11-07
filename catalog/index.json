@@ -1,5 +1,5 @@
 {
-  "$schema": "https://updates.netivo.pl/schemas/repository.v1.json",
+  "$schema": "https://updates.netivo.dev/schemas/repository.v1.json",
   "name": "Netivo WordPress Plugin Repository",
   "homepage": "https://netivo.pl",
   "updated_at": "2026-11-07T15:30:00Z",
@@ -12,7 +12,7 @@
       "requires_php": "8.2",
       "requires_wp": "6.3",
       "description": "High-performance audit logging for WordPress administration.",
-      "manifest_url": "https://updates.netivo.pl/netivo-action-logger-mu/info.json",
+      "manifest_url": "https://updates.netivo.dev/netivo-action-logger-mu/info.json",
       "last_updated": "2026-11-07T15:30:00Z"
     }
   }

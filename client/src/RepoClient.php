@@ -19,7 +19,7 @@ use WP_Error;
  */
 class RepoClient {
 
-	public const DEFAULT_REPO_URL = 'https://updates.netivo.pl';
+	public const DEFAULT_REPO_URL = 'https://updates.netivo.dev';
 	public const DEFAULT_TIMEOUT_SECONDS = 4;
 	public const DEFAULT_CACHE_TTL_SECONDS = 3600; // 1 hour
 

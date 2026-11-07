@@ -102,7 +102,7 @@ export default {
           {
             error: 'Not Found',
             message: `The requested path '${pathname}' (R2 key '${r2Key}') was not found.`,
-            catalog_url: 'https://updates.netivo.pl/index.json',
+            catalog_url: 'https://updates.netivo.dev/index.json',
           },
           404
         );

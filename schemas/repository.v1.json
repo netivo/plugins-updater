@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://updates.netivo.pl/schemas/repository.v1.json",
+  "$id": "https://updates.netivo.dev/schemas/repository.v1.json",
   "title": "NetivoPluginRepositoryCatalog",
   "description": "Schema for Netivo WordPress Plugin Repository Global Catalog (index.json)",
   "type": "object",

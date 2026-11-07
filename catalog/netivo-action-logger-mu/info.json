@@ -1,5 +1,5 @@
 {
-  "$schema": "https://updates.netivo.pl/schemas/plugin.v1.json",
+  "$schema": "https://updates.netivo.dev/schemas/plugin.v1.json",
   "slug": "netivo-action-logger-mu",
   "name": "Netivo Action Logger (MU)",
   "type": "mu-plugin",
