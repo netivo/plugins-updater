@@ -41,6 +41,16 @@ const filesToUpload = [
 
 console.log(`==> Seeding files to Cloudflare R2 bucket: "${BUCKET}" using Wrangler...\n`);
 
+// 1. Ensure the bucket exists (create it if missing)
+try {
+  console.log(`--> Checking/creating R2 bucket "${BUCKET}"...`);
+  execSync(`npx wrangler r2 bucket create "${BUCKET}"`, { stdio: 'pipe', cwd: ROOT_DIR });
+  console.log(`    [OK] Bucket "${BUCKET}" created successfully.\n`);
+} catch (err) {
+  // If the bucket already exists or cannot be created, proceed to upload
+  console.log(`    [INFO] Bucket ready.\n`);
+}
+
 let uploaded = 0;
 let failed = 0;
 

@@ -412,3 +412,15 @@ export default {
 | **3** | **CI Workflow** | Update `.github/workflows/split-wp-mu-plugin.yml` with the metadata publisher step. |
 | **4** | **`wp-mu-plugin` Client** | 1. Replace `ReleaseClient.php` GitHub API calls with `RepoClient.php` querying `https://updates.netivo.pl/netivo-action-logger-mu/info.json`.<br>2. Update unit tests in `tests/Update/`. |
 | **5** | **New Plugins Onboarding** | For plugin 2, 3, and 4: copy the publisher step into their tag-release workflow with their respective `$SLUG` and `$NAME`. |
+
+token
+cfut_dwd6nJHhQcJFVoqdW8XUDCyusRxe0vZsItHgqub8a70f9c1e
+
+account
+88719158c1f3a106fc81fd29602adfde
+
+secret
+2b30be6ef7b88fe98235b6fca279005d16621bd75f8bd5589dafeba07a18a026
+
+url
+https://68c67a5e650ddf7497279ba624cb1cda.eu.r2.cloudflarestorage.com
