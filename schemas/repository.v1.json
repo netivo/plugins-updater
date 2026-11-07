@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://updates.netivo.pl/schemas/repository.v1.json",
+  "title": "NetivoPluginRepositoryCatalog",
+  "description": "Schema for Netivo WordPress Plugin Repository Global Catalog (index.json)",
+  "type": "object",
+  "required": ["name", "updated_at", "plugins"],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the repository"
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri",
+      "description": "Homepage URL of the repository owner"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 UTC timestamp of the last catalog update"
+    },
+    "plugins": {
+      "type": "object",
+      "description": "Dictionary of plugin entries indexed by plugin slug",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "name",
+          "type",
+          "latest_version",
+          "latest_tag",
+          "manifest_url",
+          "last_updated"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Plugin title"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["mu-plugin", "standard-plugin", "dropin", "theme"],
+            "description": "Type of WordPress extension"
+          },
+          "latest_version": {
+            "type": "string",
+            "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+",
+            "description": "Semver version of the latest release"
+          },
+          "latest_tag": {
+            "type": "string",
+            "description": "Git tag name for the latest release (e.g. v1.0.0)"
+          },
+          "requires_php": {
+            "type": "string",
+            "description": "Minimum required PHP version"
+          },
+          "requires_wp": {
+            "type": "string",
+            "description": "Minimum required WordPress version"
+          },
+          "description": {
+            "type": "string",
+            "description": "Short description of what the plugin does"
+          },
+          "manifest_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Absolute URL to the plugin's full info.json manifest"
+          },
+          "last_updated": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO 8601 UTC timestamp when the plugin entry was last updated"
+          }
+        }
+      }
+    }
+  }
+}

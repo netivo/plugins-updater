@@ -1,0 +1,108 @@
+name: 'Publish Plugin Metadata to Netivo Repository'
+description: 'Pushes release metadata to Cloudflare R2 and purges Cloudflare CDN cache'
+author: 'Netivo'
+
+inputs:
+  slug:
+    description: 'Unique plugin slug (e.g. netivo-action-logger-mu)'
+    required: true
+  name:
+    description: 'Human-readable plugin name (e.g. Netivo Action Logger)'
+    required: true
+  type:
+    description: 'Plugin type (mu-plugin, standard-plugin, dropin, theme)'
+    required: false
+    default: 'mu-plugin'
+  version:
+    description: 'Semver version string (e.g. 0.7.0)'
+    required: true
+  tag:
+    description: 'Git tag (e.g. v0.7.0)'
+    required: false
+    default: ''
+  zip-path:
+    description: 'Local filesystem path to the release zip'
+    required: true
+  download-url:
+    description: 'Public download URL for the release zip on GitHub Releases'
+    required: true
+  checksum-url:
+    description: 'Optional URL to .sha256 file'
+    required: false
+    default: ''
+  requires-php:
+    description: 'Minimum required PHP version'
+    required: false
+    default: '8.2'
+  requires-wp:
+    description: 'Minimum required WordPress version'
+    required: false
+    default: '6.3'
+  tested-wp:
+    description: 'Tested up to WordPress version'
+    required: false
+    default: '6.7'
+  changelog:
+    description: 'Changelog text or summary'
+    required: false
+    default: ''
+  description:
+    description: 'Short description for catalog index'
+    required: false
+    default: ''
+  r2-account-id:
+    description: 'Cloudflare Account ID'
+    required: true
+  r2-access-key-id:
+    description: 'Cloudflare R2 Access Key ID'
+    required: true
+  r2-secret-access-key:
+    description: 'Cloudflare R2 Secret Access Key'
+    required: true
+  r2-bucket-name:
+    description: 'Cloudflare R2 Bucket Name (e.g. netivo-wp-updates)'
+    required: true
+  cf-zone-id:
+    description: 'Cloudflare Zone ID (for cache purge)'
+    required: false
+    default: ''
+  cf-api-token:
+    description: 'Cloudflare API Token with Purge Cache permission'
+    required: false
+    default: ''
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run Metadata Publisher
+      shell: bash
+      env:
+        AWS_ACCESS_KEY_ID: ${{ inputs.r2-access-key-id }}
+        AWS_SECRET_ACCESS_KEY: ${{ inputs.r2-secret-access-key }}
+        AWS_DEFAULT_REGION: auto
+        R2_ENDPOINT: "https://${{ inputs.r2-account-id }}.r2.cloudflarestorage.com"
+        R2_BUCKET: ${{ inputs.r2-bucket-name }}
+        CF_ZONE_ID: ${{ inputs.cf-zone-id }}
+        CF_API_TOKEN: ${{ inputs.cf-api-token }}
+      run: |
+        set -euo pipefail
+
+        TAG="${{ inputs.tag }}"
+        if [ -z "$TAG" ]; then
+          TAG="v${{ inputs.version }}"
+        fi
+
+        bash "${{ github.action_path }}/../../scripts/publish-metadata.sh" \
+          --slug "${{ inputs.slug }}" \
+          --name "${{ inputs.name }}" \
+          --type "${{ inputs.type }}" \
+          --version "${{ inputs.version }}" \
+          --tag "$TAG" \
+          --zip-path "${{ inputs.zip-path }}" \
+          --download-url "${{ inputs.download-url }}" \
+          --checksum-url "${{ inputs.checksum-url }}" \
+          --requires-php "${{ inputs.requires-php }}" \
+          --requires-wp "${{ inputs.requires-wp }}" \
+          --tested-wp "${{ inputs.tested-wp }}" \
+          --changelog "${{ inputs.changelog }}" \
+          --description "${{ inputs.description }}"

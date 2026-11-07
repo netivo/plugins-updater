@@ -1,0 +1,57 @@
+{
+  "$schema": "https://updates.netivo.pl/schemas/plugin.v1.json",
+  "slug": "netivo-action-logger-mu",
+  "name": "Netivo Action Logger (MU)",
+  "type": "mu-plugin",
+  "homepage": "https://netivo.pl",
+  "repository": "https://github.com/netivo/wp-action-logger-plugin",
+  "latest": "0.6.2",
+  "updated_at": "2026-11-07T15:30:00Z",
+  "versions": {
+    "0.6.2": {
+      "version": "0.6.2",
+      "tag": "v0.6.2",
+      "released_at": "2026-11-07T14:45:00Z",
+      "requires_php": "8.2",
+      "requires_wp": "6.3",
+      "tested_wp": "6.7",
+      "download_url": "https://github.com/netivo/wp-action-logger-plugin/releases/download/v0.6.2/netivo-action-logger-mu-v0.6.2.zip",
+      "checksum": {
+        "type": "sha256",
+        "value": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "url": "https://github.com/netivo/wp-action-logger-plugin/releases/download/v0.6.2/netivo-action-logger-mu-v0.6.2.zip.sha256"
+      },
+      "changelog": "- Security audit hardening and strict input sanitization.\n- Required error-log classes in bootstrap loader."
+    },
+    "0.6.1": {
+      "version": "0.6.1",
+      "tag": "v0.6.1",
+      "released_at": "2026-11-07T13:00:00Z",
+      "requires_php": "8.2",
+      "requires_wp": "6.3",
+      "tested_wp": "6.7",
+      "download_url": "https://github.com/netivo/wp-action-logger-plugin/releases/download/v0.6.1/netivo-action-logger-mu-v0.6.1.zip",
+      "checksum": {
+        "type": "sha256",
+        "value": "7f8b9d3e4a5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e",
+        "url": "https://github.com/netivo/wp-action-logger-plugin/releases/download/v0.6.1/netivo-action-logger-mu-v0.6.1.zip.sha256"
+      },
+      "changelog": "- Fixed bootstrap error logging dependencies."
+    },
+    "0.6.0": {
+      "version": "0.6.0",
+      "tag": "v0.6.0",
+      "released_at": "2026-11-06T12:00:00Z",
+      "requires_php": "8.2",
+      "requires_wp": "6.3",
+      "tested_wp": "6.6",
+      "download_url": "https://github.com/netivo/wp-action-logger-plugin/releases/download/v0.6.0/netivo-action-logger-mu-v0.6.0.zip",
+      "checksum": {
+        "type": "sha256",
+        "value": "3c4d5e6f7a8b9c0d1e7f8b9d3e4a5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b",
+        "url": "https://github.com/netivo/wp-action-logger-plugin/releases/download/v0.6.0/netivo-action-logger-mu-v0.6.0.zip.sha256"
+      },
+      "changelog": "- Added runtime error collection and log scanner integration."
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://updates.netivo.pl/schemas/plugin.v1.json",
+  "title": "NetivoPluginManifest",
+  "description": "Schema for Netivo WordPress Plugin Release Manifest (info.json)",
+  "type": "object",
+  "required": ["slug", "name", "type", "latest", "updated_at", "versions"],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-_]+$",
+      "description": "Unique plugin identifier slug"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable plugin name"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["mu-plugin", "standard-plugin", "dropin", "theme"],
+      "description": "Type of WordPress extension"
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to plugin homepage or documentation"
+    },
+    "repository": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to git source repository"
+    },
+    "latest": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+",
+      "description": "Current latest stable version"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 UTC timestamp of last manifest modification"
+    },
+    "versions": {
+      "type": "object",
+      "description": "Historical and active release records indexed by version string",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "version",
+          "tag",
+          "released_at",
+          "download_url",
+          "checksum"
+        ],
+        "properties": {
+          "version": {
+            "type": "string",
+            "description": "Version string matching the key"
+          },
+          "tag": {
+            "type": "string",
+            "description": "Git tag for this release"
+          },
+          "released_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO 8601 UTC release timestamp"
+          },
+          "requires_php": {
+            "type": "string",
+            "description": "Minimum required PHP version"
+          },
+          "requires_wp": {
+            "type": "string",
+            "description": "Minimum required WordPress version"
+          },
+          "tested_wp": {
+            "type": "string",
+            "description": "Highest WordPress version tested with"
+          },
+          "download_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Direct download URL for the plugin release zip"
+          },
+          "checksum": {
+            "type": "object",
+            "required": ["type", "value"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["sha256", "sha512", "md5"],
+                "default": "sha256"
+              },
+              "value": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$",
+                "description": "Hexadecimal SHA-256 hash of the zip asset"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Optional URL to raw checksum file"
+              }
+            }
+          },
+          "changelog": {
+            "type": "string",
+            "description": "Release notes or changelog summary"
+          }
+        }
+      }
+    }
+  }
+}

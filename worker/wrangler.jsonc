@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "netivo-plugins-repo",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-11-01",
+  "routes": [
+    {
+      "pattern": "updates.netivo.pl/*",
+      "custom_domain": true
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BUCKET",
+      "bucket_name": "netivo-wp-updates"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
