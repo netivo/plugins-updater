@@ -150,6 +150,10 @@ async function main() {
     process.exit(1);
   }
 
+  if (params.version.startsWith('v')) {
+    params.version = params.version.slice(1);
+  }
+
   if (!params.tag) {
     params.tag = `v${params.version}`;
   }
