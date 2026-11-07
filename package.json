@@ -7,8 +7,9 @@
     "test": "node scripts/validate.js",
     "validate": "node scripts/validate.js",
     "seed": "node scripts/seed-r2.js",
-    "worker:dev": "npm --prefix worker run dev",
-    "worker:deploy": "npm --prefix worker run deploy"
+    "publish": "node scripts/publish-metadata.js",
+    "worker:dev": "pnpm --prefix worker run dev",
+    "worker:deploy": "pnpm --prefix worker run deploy"
   },
   "keywords": [
     "wordpress",

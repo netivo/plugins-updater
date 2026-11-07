@@ -92,7 +92,7 @@ runs:
           TAG="v${{ inputs.version }}"
         fi
 
-        bash "${{ github.action_path }}/../../scripts/publish-metadata.sh" \
+        node "${{ github.action_path }}/../../scripts/publish-metadata.js" \
           --slug "${{ inputs.slug }}" \
           --name "${{ inputs.name }}" \
           --type "${{ inputs.type }}" \
