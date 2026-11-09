@@ -2,7 +2,7 @@
   "$schema": "https://updates.netivo.dev/schemas/repository.v1.json",
   "name": "Netivo WordPress Plugin Repository",
   "homepage": "https://netivo.pl",
-  "updated_at": "2026-11-09T12:13:38.116Z",
+  "updated_at": "2026-11-09T12:45:35.979Z",
   "plugins": {
     "netivo-action-logger-mu": {
       "name": "Netivo Action Logger (MU)",
@@ -13,7 +13,7 @@
       "requires_wp": "6.3",
       "description": "Streams admin user actions to Netivo Action Logger telemetry",
       "manifest_url": "https://updates.netivo.dev/netivo-action-logger-mu/info.json",
-      "last_updated": "2026-11-09T12:13:38.116Z"
+      "last_updated": "2026-11-09T12:45:35.979Z"
     }
   }
 }
