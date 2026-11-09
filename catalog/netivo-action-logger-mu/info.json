@@ -5,8 +5,8 @@
   "type": "mu-plugin",
   "homepage": "https://netivo.pl",
   "repository": "https://github.com/netivo/wp-action-logger-plugin",
-  "latest": "0.6.2",
-  "updated_at": "2026-11-07T15:30:00Z",
+  "latest": "0.7.1",
+  "updated_at": "2026-11-09T12:13:38.116Z",
   "versions": {
     "0.6.2": {
       "version": "0.6.2",
@@ -52,6 +52,36 @@
         "url": "https://github.com/netivo/wp-action-logger-plugin/releases/download/v0.6.0/netivo-action-logger-mu-v0.6.0.zip.sha256"
       },
       "changelog": "- Added runtime error collection and log scanner integration."
+    },
+    "0.7.0": {
+      "version": "0.7.0",
+      "tag": "v0.7.0",
+      "released_at": "2026-11-09T11:47:46.244Z",
+      "requires_php": "8.2",
+      "requires_wp": "6.3",
+      "tested_wp": "6.7",
+      "download_url": "https://github.com/netivo/wp-action-logger-plugin/releases/download/v0.7.0/netivo-action-logger-mu-v0.7.0.zip",
+      "checksum": {
+        "type": "sha256",
+        "value": "174b137c141e5b14155ef3f6a27c188fad9069c3b5b8100276780b5f0bef5737",
+        "url": "https://github.com/netivo/wp-action-logger-plugin/releases/download/v0.7.0/netivo-action-logger-mu-v0.7.0.zip.sha256"
+      },
+      "changelog": "Release v0.7.0"
+    },
+    "0.7.1": {
+      "version": "0.7.1",
+      "tag": "v0.7.1",
+      "released_at": "2026-11-09T12:13:38.116Z",
+      "requires_php": "8.2",
+      "requires_wp": "6.3",
+      "tested_wp": "6.7",
+      "download_url": "https://github.com/netivo/wp-action-logger-plugin/releases/download/v0.7.1/netivo-action-logger-mu-v0.7.1.zip",
+      "checksum": {
+        "type": "sha256",
+        "value": "b53b2c8fb285dbc19f787e4beadb55f09e3ad9ada7f4454e7d04ef8915ba12a1",
+        "url": "https://github.com/netivo/wp-action-logger-plugin/releases/download/v0.7.1/netivo-action-logger-mu-v0.7.1.zip.sha256"
+      },
+      "changelog": "Release v0.7.1"
     }
   }
 }
