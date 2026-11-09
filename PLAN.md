@@ -424,3 +424,8 @@ secret
 
 url
 https://68c67a5e650ddf7497279ba624cb1cda.eu.r2.cloudflarestorage.com
+
+$env:R2_ENDPOINT = "https://68c67a5e650ddf7497279ba624cb1cda.eu.r2.cloudflarestorage.com"
+$env:AWS_ACCESS_KEY_ID = "88719158c1f3a106fc81fd29602adfde"
+$env:AWS_SECRET_ACCESS_KEY = "2b30be6ef7b88fe98235b6fca279005d16621bd75f8bd5589dafeba07a18a026"
+$env:R2_BUCKET = "netivo-wp-updates"

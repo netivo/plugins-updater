@@ -336,10 +336,15 @@ async function main() {
     process.exit(1);
   }
 
-  const bucket = process.env.R2_BUCKET || 'netivo-wp-updates';
-  const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
-  const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
-  const accountId = process.env.R2_ACCOUNT_ID || (process.env.R2_ENDPOINT ? (process.env.R2_ENDPOINT.match(/https?:\/\/([^.]+)\./) || [])[1] : '');
+  const bucket = (process.env.R2_BUCKET || 'netivo-wp-updates').trim();
+  const accessKeyId = (process.env.AWS_ACCESS_KEY_ID || '').trim();
+  const secretAccessKey = (process.env.AWS_SECRET_ACCESS_KEY || '').trim();
+  const accountId = (process.env.R2_ACCOUNT_ID || (process.env.R2_ENDPOINT ? (process.env.R2_ENDPOINT.match(/https?:\/\/([^.]+)\./) || [])[1] : '')).trim();
+
+  if (accessKeyId && accessKeyId.length !== 32) {
+    console.warn(`[WARNING] Cloudflare R2 Access Key ID should be 32 characters (received ${accessKeyId.length} characters).`);
+    console.warn('          Ensure you copied the "Access Key ID" from Cloudflare Dashboard > R2 > Manage R2 API Tokens, NOT the API Token or Secret.');
+  }
 
   // Build candidate S3 endpoints (EU jurisdiction first, then global)
   const candidateEndpoints = [];
