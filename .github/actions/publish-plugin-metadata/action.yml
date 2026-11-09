@@ -78,6 +78,7 @@ runs:
       shell: bash
       env:
         R2_ACCOUNT_ID: ${{ inputs.r2-account-id }}
+        CLOUDFLARE_ACCOUNT_ID: ${{ inputs.r2-account-id }}
         AWS_ACCESS_KEY_ID: ${{ inputs.r2-access-key-id }}
         AWS_SECRET_ACCESS_KEY: ${{ inputs.r2-secret-access-key }}
         AWS_DEFAULT_REGION: auto
@@ -86,6 +87,7 @@ runs:
         R2_JURISDICTION: 'eu'
         CF_ZONE_ID: ${{ inputs.cf-zone-id }}
         CF_API_TOKEN: ${{ inputs.cf-api-token }}
+        CLOUDFLARE_API_TOKEN: ${{ inputs.cf-api-token }}
         REPO_BASE_URL: 'https://updates.netivo.dev'
       run: |
         set -euo pipefail
