@@ -92,7 +92,12 @@ runs:
           TAG="v${{ inputs.version }}"
         fi
 
-        node "${{ github.action_path }}/../../scripts/publish-metadata.js" \
+        SCRIPT="${{ github.action_path }}/publish-metadata.js"
+        if [ ! -f "$SCRIPT" ]; then
+          SCRIPT="${{ github.action_path }}/../../../scripts/publish-metadata.js"
+        fi
+
+        node "$SCRIPT" \
           --slug "${{ inputs.slug }}" \
           --name "${{ inputs.name }}" \
           --type "${{ inputs.type }}" \
